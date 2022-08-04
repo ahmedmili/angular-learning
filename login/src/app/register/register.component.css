@@ -1,0 +1,7 @@
+.container{
+    background-color: rgb(230, 240, 248);
+    /* margin-top: 100px; */
+    position: relative;
+    top: 20vh;
+    padding: 10px;
+}

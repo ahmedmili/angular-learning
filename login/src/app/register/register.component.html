@@ -1,0 +1,35 @@
+<div class="container col-md-6">
+    <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off">
+      
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input formControlName="f_name" type="text" class="form-control" id="first-name" placeholder="First Name">
+          </div>
+
+          <div class="form-group">
+            <label for="Last-name">Last Name</label>
+            <input formControlName="l_name" type="text" class="form-control" id="Last-name"  placeholder="Last Name">
+          </div>
+
+          <div class="form-group">
+            <label for="email1">Email address</label>
+            <input formControlName="email" type="email" class="form-control" id="email1"  placeholder="email">
+          </div>
+
+          <div class="form-group">
+            <label for="phoneNumber">Email address</label>
+            <input formControlName="phoneNumber" type="text" class="form-control" id="phoneNumber" placeholder="Phone Number">
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input formControlName="password" type="password" class="form-control" id="password" placeholder="Password">
+          </div>
+
+      <!-- <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div> -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
