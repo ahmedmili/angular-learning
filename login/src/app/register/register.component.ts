@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl,FormBuilder,Validators,NgForm} from '@angular/forms'
 
-import {first} from 'rxjs/operators';
+// import {first} from 'rxjs/operators';
 import { Router } from '@angular/router';
 import {ApiService} from '../api.service'
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -22,12 +23,10 @@ export class RegisterComponent implements OnInit {
       this.angForm = this.fb.group({
         f_name : ['',Validators.required],
         l_name : ['',Validators.required],
-        email : ['',Validators.required,Validators.minLength(1),Validators.email],
+        email : ['',Validators.required,Validators.email],
         password : ['',Validators.required],
         mobile : ['',Validators.required],
       })
-
-
      }
 
   ngOnInit(): void {
@@ -41,13 +40,6 @@ export class RegisterComponent implements OnInit {
         angForm.value.password,
         angForm.value.mobile,
       )
-      .pipe(first())
-      .subscribe(data =>{
-        this.router.navigate(['login']);
-      },
-      error => {
-
-      })
   }
 
 }
