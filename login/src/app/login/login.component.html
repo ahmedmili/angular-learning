@@ -3,7 +3,8 @@
 
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
-        <input formControlName="email"  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <input  formControlName="email"  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <span style="color: 'red';"  *ngIf="status">{{status}}</span> 
       </div>
       
       <div class="form-group">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-main-p',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route :Router) { 
+
+  }
 
   ngOnInit(): void {
+  }
+
+  logOut(){
+    localStorage.removeItem('token');
+    console.log('token remover')
+    console.log(localStorage.getItem("token"))
+    this.route.navigate(["/login"])
   }
 
 }

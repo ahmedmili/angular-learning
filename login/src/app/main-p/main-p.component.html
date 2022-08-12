@@ -1,10 +1,14 @@
 <div class="container">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link active" routerLink="/login" href="#">login</a>
+            <a class="nav-link active" routerLink="/login" >login</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" routerLink="/register" href="#">register</a>
+         <a class="nav-link" routerLink="/register" >register</a>
+        </li>
+
+        <li class="nav-item">
+         <a class="nav-link"(click)="logOut()" routerLink="/login" >logout</a>
         </li>
     </ul>
 </div>

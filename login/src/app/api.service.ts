@@ -1,8 +1,7 @@
 import {Injectable,Output,EventEmitter} from '@angular/core';
-// import {map} from 'rxjs/operators';
+import {Router} from '@angular/router'
+import {Observable, of,Observer} from 'rxjs'
 
-// import {HttpClient} from '@angular/common/http';
-// import { users } from './users';
 import Axios from "axios";
 @Injectable({
     providedIn:'root'
@@ -19,16 +18,58 @@ export class ApiService {
     //             return Users;
     //         }))
     //     }
+
+    constructor(private route:Router){
+
+
+    }
+
     
+
+     token!: any;
+    tokenValide!:boolean;
+
+    public async verifToken():Promise<boolean>{
+   
+        this.token = localStorage.getItem("token")
+        if(this.token){
+              await  Axios.get("http://localhost:8000/", {
+            headers: {
+                token: this.token
+              }
+        })
+    .then((response)=>{
+        if(response.data.loggedin==true){
+            this.tokenValide = true;
+            // console.log(this.tokenValide);
+        }else {
+            this.tokenValide= false;
+            // console.log(this.tokenValide);    
+        }
+        })
+        }else
+            console.log("no token saved")      
+        // console.log(this.tokenValide);
+        return (this.tokenValide)
+    }
+
+
+
     
     public userlogin(email:any,password:any){
         Axios.post("http://localhost:8000/api/login/", {
             email: email,
             password: password,
         }).then((response)=>{
-            console.log(response.data.status)
+            // console.log(response.data.status)
             if(response.data.status === 2){
-                console.log("login succes")  
+                // console.log("login succes")
+                // console.log(response.data.token)
+                localStorage.setItem('token', response.data.token);
+
+                this.route.navigate(['/'])
+                // console.log(localStorage.getItem('token'))
+  
             }
         })
     }

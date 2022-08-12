@@ -1,3 +1,6 @@
-<app-main-p></app-main-p>
+<!-- <app-main-p *ngIf="tokenValidator"></app-main-p> -->
+
+<p *ngIf="tokenValidator==true">if true</p>
+<p *ngIf="tokenValidator== false">test false</p>
 
 <router-outlet></router-outlet>
